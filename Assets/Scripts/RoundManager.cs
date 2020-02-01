@@ -22,12 +22,18 @@ public class RoundManager : Singleton<RoundManager>
 
     private void Awake()
     {
-        
+
     }
 
     private void Start()
     {
-        spawnsMissile.SpawnMissile();
+        StartCoroutine(RutineStartGame());
+    }
+
+    IEnumerator RutineStartGame()
+    {
+        yield return new WaitForSecondsRealtime(2f);
+        CallOnChangeGame(GameState.Playing);
     }
 
     bool VerifyGameEnd()
@@ -42,19 +48,25 @@ public class RoundManager : Singleton<RoundManager>
         return true;
     }
 
+
+    void CallOnChangeGame(GameState _gameState)
+    {
+        if (onChangeStateGame != null)
+        {
+            onChangeStateGame.Invoke(_gameState);
+        }
+    }
+
     public void CheckStateGame()
     {
         if (VerifyGameEnd())
         {
-            if (onChangeStateGame != null)
-            {
-                onChangeStateGame.Invoke(GameState.EndGame);
-            }
+            CallOnChangeGame(GameState.EndGame);
         }
     }
 
     private void OnDisable()
     {
-       
+
     }
 }

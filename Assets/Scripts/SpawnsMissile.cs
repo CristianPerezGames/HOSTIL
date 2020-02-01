@@ -7,9 +7,39 @@ public class SpawnsMissile : MonoBehaviour
     public MissileController missilePrefab;
     public List<Transform> spawnPoints;
 
+    public Coroutine rutineSpawn;
+
+    private void Start()
+    {
+        RoundManager.Instance.onChangeStateGame += StateGame;
+    }
+
     public void SpawnMissile()
     {
-        StartCoroutine(RutineMissile());
+        rutineSpawn = StartCoroutine(RutineMissile());
+    }
+
+    void StopSpawnRutine()
+    {
+        if (rutineSpawn != null)
+        {
+            StopCoroutine(rutineSpawn);
+        }
+    }
+
+    void StateGame(GameState _gameState)
+    {
+        switch (_gameState)
+        {
+            case GameState.Playing:
+                SpawnMissile();
+                break;
+            case GameState.EndGame:
+                StopSpawnRutine();
+                break;
+            case GameState.Pause:
+                break;
+        }
     }
 
     IEnumerator RutineMissile()
