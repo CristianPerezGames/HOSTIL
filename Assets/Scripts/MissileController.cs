@@ -9,6 +9,8 @@ public class MissileController : MonoBehaviour
     // Start is called before the first frame update
 
     public float AimForce;
+    public AudioSource explosionAudio;
+    public AudioSource fireMissileAudio;
 
     public Transform artObject;
 
@@ -27,7 +29,10 @@ public class MissileController : MonoBehaviour
             }
         }
 
-        Destroy(this.gameObject);
+        explosionAudio.Play();
+
+        artObject.gameObject.SetActive(false);
+        Destroy(this.gameObject,2);
     }
 
     public void SetTargetReactor(GameObject reactor){
@@ -42,5 +47,9 @@ public class MissileController : MonoBehaviour
     public void Update() {
         float error = Random.Range(-1.0f,1.0f);
         this.GetComponent<Rigidbody2D>().AddForce(new Vector2((reactor.transform.position.x - this.transform.position.x + error) * AimForce * Time.deltaTime , 0));
+    }
+
+    public void Start(){
+        fireMissileAudio.Play();
     }
 }
