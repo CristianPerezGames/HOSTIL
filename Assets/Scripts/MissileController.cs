@@ -10,6 +10,8 @@ public class MissileController : MonoBehaviour
 
     public float AimForce;
 
+    public Transform artObject;
+
     private GameObject reactor;
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -30,6 +32,11 @@ public class MissileController : MonoBehaviour
 
     public void SetTargetReactor(GameObject reactor){
         this.reactor = reactor;
+    }
+
+    private void LateUpdate()
+    {
+        artObject.up = this.GetComponent<Rigidbody2D>().velocity;
     }
 
     public void Update() {

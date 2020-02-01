@@ -39,8 +39,10 @@ public class RoundManager : Singleton<RoundManager>
 
     void StateRound(GameState _gameState)
     {
-        if (_gameState == GameState.MiniGame || _gameState == GameState.Pause)
+        if(_gameState == GameState.Pause)
             StarSlowPause();
+        if (_gameState == GameState.MiniGame)
+            Time.timeScale = 0;
         if (_gameState == GameState.Playing)
         {
             if (slowPause != null)

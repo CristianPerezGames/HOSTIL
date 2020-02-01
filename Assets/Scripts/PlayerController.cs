@@ -53,20 +53,31 @@ public class PlayerController : MonoBehaviour
 
         xAxis = Input.GetAxis("Horizontal");
 
-        if (Input.GetKey(KeyCode.X) && !inReactor)
+        if (Input.GetKey(KeyCode.X) && !inReactor && currentReactor != null)
         {
-            currTime += Time.deltaTime;
-            sliderPress.value = currTime;
-            if (currTime >= timePress)
+            if (currentReactor.reactorEnergy.energyShield < 100)
             {
-                inReactor = true;
-                RoundManager.Instance.CallOnChangeGame(GameState.MiniGame);
-                ResetPressHolder();
+                currTime += Time.deltaTime;
+                sliderPress.value = currTime;
+                if (currTime >= timePress)
+                {
+                    inReactor = true;
+                    RoundManager.Instance.CallOnChangeGame(GameState.MiniGame);
+                    ResetPressHolder();
+                }
             }
         }
         else
         {
             currTime = 0;
+        }
+
+        if (currentReactor != null)
+        {
+            if (currentReactor.reactorEnergy.energyShield < 100)
+            {
+                pressHolder.gameObject.SetActive(true);
+            }
         }
     }
 
@@ -82,11 +93,7 @@ public class PlayerController : MonoBehaviour
         ReactorController reactorController = collision.GetComponentInParent<ReactorController>();
         if (reactorController)
         {
-            if (reactorController.reactorEnergy.energyShield < 100)
-            {
-                currentReactor = reactorController;
-                pressHolder.gameObject.SetActive(true);
-            }
+            currentReactor = reactorController;
         }
     }
 
