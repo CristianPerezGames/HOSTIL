@@ -8,6 +8,8 @@ public class MissileController : MonoBehaviour
     public bool isDestroy = false;
     // Start is called before the first frame update
 
+    public float AimForce;
+
     private GameObject reactor;
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -31,6 +33,7 @@ public class MissileController : MonoBehaviour
     }
 
     public void Update() {
-        this.GetComponent<Rigidbody2D>().AddForce(new Vector2((reactor.transform.position.x - this.transform.position.x) * 10 * Time.deltaTime , 0));
+        float error = Random.Range(-1.0f,1.0f);
+        this.GetComponent<Rigidbody2D>().AddForce(new Vector2((reactor.transform.position.x - this.transform.position.x + error) * AimForce * Time.deltaTime , 0));
     }
 }
