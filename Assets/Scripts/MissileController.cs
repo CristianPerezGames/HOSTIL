@@ -7,6 +7,8 @@ public class MissileController : MonoBehaviour
     public float damageMissile;
     public bool isDestroy = false;
     // Start is called before the first frame update
+
+    private GameObject reactor;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (isDestroy)
@@ -22,5 +24,13 @@ public class MissileController : MonoBehaviour
         }
 
         Destroy(this.gameObject);
+    }
+
+    public void SetTargetReactor(GameObject reactor){
+        this.reactor = reactor;
+    }
+
+    public void Update(){
+        this.GetComponent<Rigidbody2D>().AddForce(new Vector2((reactor.transform.position.x - this.transform.position.x)/2 , 0));
     }
 }
