@@ -48,10 +48,12 @@ public class MiniGameOne : MiniGameBase
             if (contador <= minimo)
             {
                 contador = minimo;
+                terminaElMinigame();
             }
             if (contador >= maximo)
             {
                 contador = maximo;
+                terminaElMinigame();
             }
             //        tr.gameObject.transform.localScale = new Vector3(100, contador, 1);
             oldRange = oldMax - oldMin;
