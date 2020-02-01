@@ -176,6 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageMissile: 25
   isDestroy: 0
+  AimForce: 50
 --- !u!50 &2116381027726255967
 Rigidbody2D:
   serializedVersion: 4
