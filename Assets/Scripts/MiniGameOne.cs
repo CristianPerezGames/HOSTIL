@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,43 +10,74 @@ public class MiniGameOne : MiniGameBase
     public float sumarPorGolpe = 40f;
     public float maximo = 100f;
     public float minimo = 0f;
+    public float tiempo = 5f;
     public GameObject gMan;
     //    public GameObject tr;
     public Slider sliderValue;
+    public Image boton;
     float oldRange = 0;
     float oldMin = 0;
     float oldMax = 100;
     float newRange = 0;
     float newMin = 0;
     float newMax = 1;
+    bool terminado = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        empiezaElMinigame();
     }
 
     // Update is called once per frame
     void Update()
     {
-        contador -= restarPorSegundo * Time.deltaTime;
-        if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyDown(KeyCode.Space))
+        if(terminado == false)
         {
-            Debug.Log("se presiono ---------------------------------------------------------- SPACE");
-            contador += sumarPorGolpe * Time.deltaTime;
+            contador -= restarPorSegundo * Time.deltaTime;
+            boton.color = Color.red;
+            if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyDown(KeyCode.Space))
+            {
+//                Debug.Log("se presiono ---------------------------------------------------------- SPACE");
+                contador += sumarPorGolpe * Time.deltaTime;
+                boton.color = Color.blue;
+            }
+            if (contador <= minimo)
+            {
+                contador = minimo;
+            }
+            if (contador >= maximo)
+            {
+                contador = maximo;
+            }
+            //        tr.gameObject.transform.localScale = new Vector3(100, contador, 1);
+            oldRange = oldMax - oldMin;
+            newRange = newMax - newMin;
+            float newValue = ((contador - oldMin) * newRange / oldRange) + newMin;
+            sliderValue.value = newValue;
+//            Debug.Log("contador: " + contador + " ____ time.deltaTime: " + Time.deltaTime);
+
+            tiempo -= 1 * Time.deltaTime;
+            Debug.Log("tiempo: " + tiempo);
         }
-        if (contador <= minimo)
+        if (tiempo <= 0)
         {
-            contador = minimo;
+            terminaElMinigame();
         }
-        if (contador >= maximo)
-        {
-            contador = maximo;
-        }
-        //        tr.gameObject.transform.localScale = new Vector3(100, contador, 1);
-        oldRange = oldMax - oldMin;
-        newRange = newMax - newMin;
-        float newValue = ((contador - oldMin) * newRange / oldRange) + newMin;
-        sliderValue.value = newValue;
-        Debug.Log("contador: " + contador + " ____ time.deltaTime: " + Time.deltaTime);
+    }
+
+    public void empiezaElMinigame()
+    {
+        terminado = false;
+    }
+
+    public void terminaElMinigame()
+    {
+        terminado = true;
+        /*
+         * la variable
+         * CONTADOR
+         * tiene la cantidad de energia que el jugador gano en el minigame
+         */
     }
 }
