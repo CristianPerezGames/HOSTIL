@@ -14,6 +14,7 @@ public class MiniGameOne : MiniGameBase
     public GameObject gMan;
     //    public GameObject tr;
     public Slider sliderValue;
+    public Text tCounter;
     public Image boton;
     float oldRange = 0;
     float oldMin = 0;
@@ -60,6 +61,7 @@ public class MiniGameOne : MiniGameBase
 //            Debug.Log("contador: " + contador + " ____ time.deltaTime: " + Time.deltaTime);
 
             tiempo -= 1 * Time.deltaTime;
+            tCounter.text = Mathf.CeilToInt(tiempo).ToString();
             //Debug.Log("tiempo: " + tiempo);
         }
         if (tiempo <= 0 && terminado == false)
@@ -71,6 +73,7 @@ public class MiniGameOne : MiniGameBase
     public void empiezaElMinigame()
     {
         terminado = false;
+        tCounter.text = "5";
     }
 
     public void terminaElMinigame()
