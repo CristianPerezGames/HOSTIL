@@ -13,6 +13,7 @@ public class ReactorEnergy : MonoBehaviour
     private void Awake()
     {
        sliderEnergy.value = energyShield;
+        sliderEnergy.maxValue = energyShield;
     }
 
     public void SetDamage(float _damage)
