@@ -231,6 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameState: 1
   spawnsMissile: {fileID: 2123032663}
+  playerController: {fileID: 195423251}
   reactorControllers:
   - {fileID: 1592129748}
   - {fileID: 343545405}
@@ -249,6 +250,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &195423251 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 790783817878526819, guid: 57b4016e3f897ca4f84f8e74e34a5cbc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2635353647834334457}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e661c0a1413d41c47ac6d5b43b188320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &195423252 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2609271720431524241, guid: 57b4016e3f897ca4f84f8e74e34a5cbc,

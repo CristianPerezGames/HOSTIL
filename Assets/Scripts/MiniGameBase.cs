@@ -6,6 +6,7 @@ public class MiniGameBase : MonoBehaviour
 {
     public void Close()
     {
+        RoundManager.Instance.CallOnChangeGame(GameState.Playing);
         Destroy(gameObject);
     }
 }

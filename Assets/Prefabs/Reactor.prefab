@@ -97,6 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reactorState: 0
   idReactor: Reactor
+  reactorEnergy: {fileID: 4663636329150853446}
 --- !u!114 &4663636329150853446
 MonoBehaviour:
   m_ObjectHideFlags: 0

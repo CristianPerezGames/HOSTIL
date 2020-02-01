@@ -23,12 +23,33 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        RoundManager.Instance.onChangeStateGame += ChangeState;
+    }
+    
+    void ChangeState(GameState _gameState)
+    {
+        switch (_gameState)
+        {
+            case GameState.Menu:
+                break;
+            case GameState.Playing:
+                ResetPressHolder();
+                break;
+            case GameState.EndGame:
+                break;
+            case GameState.Pause:
+                break;
+            case GameState.MiniGame:
+                break;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (RoundManager.Instance.gameState == GameState.MiniGame || RoundManager.Instance.gameState == GameState.Pause)
+            return;
+
         xAxis = Input.GetAxis("Horizontal");
 
         if (Input.GetKey(KeyCode.X) && !inReactor)
@@ -37,9 +58,9 @@ public class PlayerController : MonoBehaviour
             sliderPress.value = currTime;
             if (currTime >= timePress)
             {
-                currTime = 0;
                 inReactor = true;
                 RoundManager.Instance.CallOnChangeGame(GameState.MiniGame);
+                ResetPressHolder();
             }
         }
     }
@@ -65,8 +86,13 @@ public class PlayerController : MonoBehaviour
     {
         pressHolder.gameObject.SetActive(false);
         currentReactor = null;
+        ResetPressHolder();
+        inReactor = false;
+    }
+
+    void ResetPressHolder()
+    {
         currTime = 0;
         sliderPress.value = currTime;
-        inReactor = false;
     }
 }

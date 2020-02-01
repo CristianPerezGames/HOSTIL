@@ -27,6 +27,8 @@ public class MiniGameOne : MiniGameBase
     void Start()
     {
         empiezaElMinigame();
+
+        contador = RoundManager.Instance.playerController.currentReactor.reactorEnergy.energyShield;
     }
 
     // Update is called once per frame
@@ -58,9 +60,9 @@ public class MiniGameOne : MiniGameBase
 //            Debug.Log("contador: " + contador + " ____ time.deltaTime: " + Time.deltaTime);
 
             tiempo -= 1 * Time.deltaTime;
-            Debug.Log("tiempo: " + tiempo);
+            //Debug.Log("tiempo: " + tiempo);
         }
-        if (tiempo <= 0)
+        if (tiempo <= 0 && terminado == false)
         {
             terminaElMinigame();
         }
@@ -74,6 +76,7 @@ public class MiniGameOne : MiniGameBase
     public void terminaElMinigame()
     {
         terminado = true;
+        Close();
         /*
          * la variable
          * CONTADOR
