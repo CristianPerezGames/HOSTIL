@@ -43,6 +43,9 @@ public class SpawnsMissile : MonoBehaviour
                 break;
             case GameState.Pause:
                 break;
+            case GameState.MiniGame:
+                StopSpawnRutine();
+                break;
         }
     }
 

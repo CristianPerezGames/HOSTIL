@@ -84,16 +84,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 8683075412409885207}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de242c40d1276a24896f986b6d5cd1c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 293d60163a2c31e4db1a0eaeb6bf67e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   contador: 50
-  restarPorSegundo: 1
-  sumarPorGolpe: 40
+  restarPorSegundo: 3
+  sumarPorGolpe: 100
   maximo: 100
   minimo: 0
+  tiempo: 5
   gMan: {fileID: 0}
   sliderValue: {fileID: 2306866678509232774}
+  boton: {fileID: 8683075412409885205}
 --- !u!1001 &8683075412223955870
 PrefabInstance:
   m_ObjectHideFlags: 0

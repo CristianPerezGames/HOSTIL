@@ -18,6 +18,7 @@ public class RoundManager : Singleton<RoundManager>
 
     public GameState gameState = GameState.Playing;
     public SpawnsMissile spawnsMissile;
+    public PlayerController playerController;
 
     public List<ReactorController> reactorControllers;
 
@@ -29,6 +30,14 @@ public class RoundManager : Singleton<RoundManager>
     private void Start()
     {
         StartCoroutine(RutineStartGame());
+    }
+
+    void StateRound(GameState _gameState)
+    {
+        if (_gameState == GameState.MiniGame)
+            Time.timeScale = 0;
+        if (_gameState == GameState.Playing)
+            Time.timeScale = 1;
     }
 
     IEnumerator RutineStartGame()
