@@ -33,7 +33,7 @@ public class MissileController : MonoBehaviour
     }
 
     public void Update() {
-        this.GetComponent<Rigidbody2D>().AddForce(new Vector2((reactor.transform.position.x - this.transform.position.x) * AimForce * Time.deltaTime , 0));
-        // new Vector2((reactor.transform.position.x - this.transform.position.x) * 10 * Time.deltaTime
+        float error = Random.Range(-1.0f,1.0f);
+        this.GetComponent<Rigidbody2D>().AddForce(new Vector2((reactor.transform.position.x - this.transform.position.x + error) * AimForce * Time.deltaTime , 0));
     }
 }
