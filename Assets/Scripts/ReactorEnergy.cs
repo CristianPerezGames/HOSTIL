@@ -21,7 +21,7 @@ public class ReactorEnergy : MonoBehaviour
     {
         energyShield -= _damage;
         sliderEnergy.value = energyShield;
-        if (energyShield <= 0)
+        if (IsBroken())
         {
             Debug.Log("Death");
             reactorController.reactorState = ReactorState.Death;
@@ -34,5 +34,9 @@ public class ReactorEnergy : MonoBehaviour
     {
         shieldObject.gameObject.SetActive(false);
         sliderEnergy.gameObject.SetActive(false);
+    }
+
+    public bool IsBroken(){
+        return energyShield <= 0;
     }
 }

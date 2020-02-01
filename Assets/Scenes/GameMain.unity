@@ -361,7 +361,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1981291952291366274}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 924608181}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3241e490f5e32da41a2a031a64c4b57d, type: 3}
@@ -372,6 +372,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1981291952245573002, guid: b583ccf0ca1dd724082882e629d29c69,
     type: 3}
   m_PrefabInstance: {fileID: 1981291952291366274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &268921420 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1981291952245572997, guid: b583ccf0ca1dd724082882e629d29c69,
+    type: 3}
+  m_PrefabInstance: {fileID: 2101723735}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &294029994
 GameObject:
@@ -495,7 +501,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 2101723735}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 268921420}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3241e490f5e32da41a2a031a64c4b57d, type: 3}
@@ -701,6 +707,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &584269175 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1981291952245572997, guid: b583ccf0ca1dd724082882e629d29c69,
+    type: 3}
+  m_PrefabInstance: {fileID: 26237433}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &644598151
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,6 +872,12 @@ Transform:
   m_Father: {fileID: 2123032664}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &924608181 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1981291952245572997, guid: b583ccf0ca1dd724082882e629d29c69,
+    type: 3}
+  m_PrefabInstance: {fileID: 1981291952291366274}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1225037252
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,8 +937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiDeathGame: {fileID: 1926552813}
-  miniGames:
-  - {fileID: 7058376796470093646, guid: 8d9b76a430589e847907dce6fd90ce4b, type: 3}
+  miniGames: []
 --- !u!1 &1450286834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,7 +1120,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 26237433}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 584269175}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3241e490f5e32da41a2a031a64c4b57d, type: 3}
@@ -1443,6 +1460,9 @@ MonoBehaviour:
   - {fileID: 237795135}
   - {fileID: 1914907438}
   - {fileID: 363281058}
+  reactor1: {fileID: 924608181}
+  reactor2: {fileID: 268921420}
+  reactor3: {fileID: 584269175}
 --- !u!4 &2123032664
 Transform:
   m_ObjectHideFlags: 0
