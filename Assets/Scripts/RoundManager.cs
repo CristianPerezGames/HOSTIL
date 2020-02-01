@@ -8,7 +8,8 @@ public enum GameState
     Menu,
     Playing,
     EndGame,
-    Pause
+    Pause,
+    MiniGame
 }
 
 public class RoundManager : Singleton<RoundManager>
@@ -49,7 +50,7 @@ public class RoundManager : Singleton<RoundManager>
     }
 
 
-    void CallOnChangeGame(GameState _gameState)
+    public void CallOnChangeGame(GameState _gameState)
     {
         if (onChangeStateGame != null)
         {

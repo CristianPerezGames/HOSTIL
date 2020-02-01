@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
             {
                 currTime = 0;
                 inReactor = true;
+                RoundManager.Instance.CallOnChangeGame(GameState.MiniGame);
             }
         }
     }

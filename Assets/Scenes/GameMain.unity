@@ -249,6 +249,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &195423252 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2609271720431524241, guid: 57b4016e3f897ca4f84f8e74e34a5cbc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2635353647834334457}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &235369890
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,6 +601,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -610,6 +617,20 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eceda3c2489b294b80459a012c15759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTrans: {fileID: 195423252}
+  xOffset: 5
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -885,6 +906,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiDeathGame: {fileID: 1926552813}
+  miniGames:
+  - {fileID: 7058376796470093646, guid: 8d9b76a430589e847907dce6fd90ce4b, type: 3}
 --- !u!1 &1450286834
 GameObject:
   m_ObjectHideFlags: 0

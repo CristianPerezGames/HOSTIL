@@ -7,6 +7,7 @@ public class UIGameMaster : Singleton<UIGameMaster>
 {
     public GameObject uiDeathGame;
 
+    public List<MiniGameBase> miniGames;
     private void Start()
     {
         RoundManager.Instance.onChangeStateGame += UIStateGame;
@@ -25,7 +26,15 @@ public class UIGameMaster : Singleton<UIGameMaster>
                 break;
             case GameState.Pause:
                 break;
+            case GameState.MiniGame:
+                SpawnMiniGame();
+                break;
         }
+    }
+
+    void SpawnMiniGame()
+    {
+        Instantiate(miniGames[0], this.transform);
     }
 
     public void ShowDeathGame()
