@@ -11,4 +11,6 @@ public enum ReactorState
 public class ReactorController : MonoBehaviour
 {
     public ReactorState reactorState = ReactorState.Alive;
+
+    public string idReactor = "Reactor";
 }
