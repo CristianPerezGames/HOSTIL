@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3241e490f5e32da41a2a031a64c4b57d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reactorState: 0
 --- !u!114 &4663636329150853446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,6 +60,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22907c639aecb6b4897b1b8dead76d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reactorController: {fileID: 3089267738194655259}
+  shieldObject: {fileID: 6188146229564648412}
   sliderEnergy: {fileID: 7043176873286042999}
   energyShield: 100
 --- !u!1 &1981291953183589954

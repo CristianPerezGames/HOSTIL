@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class ReactorEnergy : MonoBehaviour
 {
-
+    public ReactorController reactorController;
+    public GameObject shieldObject;
     public Slider sliderEnergy;
     [Header("VARIABLES")]
     public float energyShield = 0;
@@ -23,6 +24,15 @@ public class ReactorEnergy : MonoBehaviour
         if (energyShield <= 0)
         {
             Debug.Log("Death");
+            reactorController.reactorState = ReactorState.Death;
+            RoundManager.Instance.CheckStateGame();
+            DeathVFX();
         }
+    }
+
+    void DeathVFX()
+    {
+        shieldObject.gameObject.SetActive(false);
+        sliderEnergy.gameObject.SetActive(false);
     }
 }

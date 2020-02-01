@@ -16,9 +16,9 @@ public class SpawnsMissile : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSecondsRealtime(1);
-            Instantiate(missilePrefab, GetSpawner().position, Quaternion.identity);
-            yield return new WaitForSecondsRealtime(1);
+            float timeInterval = Random.Range(0.3f, 2.0f);
+            yield return new WaitForSecondsRealtime(timeInterval);
+            Instantiate(missilePrefab, GetSpawner().position, Quaternion.identity);        
         }
     }
 
