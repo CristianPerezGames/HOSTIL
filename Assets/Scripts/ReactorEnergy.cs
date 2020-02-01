@@ -30,6 +30,11 @@ public class ReactorEnergy : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        sliderEnergy.value = energyShield;
+    }
+
     void DeathVFX()
     {
         shieldObject.gameObject.SetActive(false);

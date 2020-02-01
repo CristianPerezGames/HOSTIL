@@ -23,6 +23,7 @@ public class MiniGameOne : MiniGameBase
     float newMin = 0;
     float newMax = 1;
     bool terminado = false;
+    float newValue;
 
     // Start is called before the first frame update
     void Start()
@@ -37,12 +38,12 @@ public class MiniGameOne : MiniGameBase
     {
         if(terminado == false)
         {
-            contador -= restarPorSegundo * Time.deltaTime;
+            contador -= restarPorSegundo * Time.unscaledDeltaTime;
             boton.color = Color.red;
             if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyDown(KeyCode.Space))
             {
 //                Debug.Log("se presiono ---------------------------------------------------------- SPACE");
-                contador += sumarPorGolpe * Time.deltaTime;
+                contador += sumarPorGolpe * Time.unscaledDeltaTime;
                 boton.color = Color.blue;
             }
             if (contador <= minimo)
@@ -58,11 +59,11 @@ public class MiniGameOne : MiniGameBase
             //        tr.gameObject.transform.localScale = new Vector3(100, contador, 1);
             oldRange = oldMax - oldMin;
             newRange = newMax - newMin;
-            float newValue = ((contador - oldMin) * newRange / oldRange) + newMin;
+            newValue = ((contador - oldMin) * newRange / oldRange) + newMin;
             sliderValue.value = newValue;
 //            Debug.Log("contador: " + contador + " ____ time.deltaTime: " + Time.deltaTime);
 
-            tiempo -= 1 * Time.deltaTime;
+            tiempo -= 1 * Time.unscaledDeltaTime;
             tCounter.text = Mathf.CeilToInt(tiempo).ToString();
             //Debug.Log("tiempo: " + tiempo);
         }
@@ -81,6 +82,7 @@ public class MiniGameOne : MiniGameBase
     public void terminaElMinigame()
     {
         terminado = true;
+        RoundManager.Instance.playerController.currentReactor.reactorEnergy.energyShield = contador;
         Close();
         /*
          * la variable

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class UIGameMaster : Singleton<UIGameMaster>
 {
     public GameObject uiDeathGame;
+    public GameObject uiPauseGame;
 
     public List<MiniGameBase> miniGames;
     private void Start()
@@ -25,6 +26,7 @@ public class UIGameMaster : Singleton<UIGameMaster>
                 ShowDeathGame();
                 break;
             case GameState.Pause:
+                ShowPauseGame();
                 break;
             case GameState.MiniGame:
                 SpawnMiniGame();
@@ -40,6 +42,11 @@ public class UIGameMaster : Singleton<UIGameMaster>
     public void ShowDeathGame()
     {
         uiDeathGame.SetActive(true);
+    }
+
+    void ShowPauseGame()
+    {
+        uiPauseGame.SetActive(true);
     }
 
     public void ReloadGame()

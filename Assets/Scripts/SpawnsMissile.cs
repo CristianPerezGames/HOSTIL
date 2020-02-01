@@ -20,7 +20,8 @@ public class SpawnsMissile : MonoBehaviour
 
     public void SpawnMissile()
     {
-        rutineSpawn = StartCoroutine(RutineMissile());
+        if(rutineSpawn == null)
+            rutineSpawn = StartCoroutine(RutineMissile());
     }
 
     void StopSpawnRutine()
@@ -28,6 +29,7 @@ public class SpawnsMissile : MonoBehaviour
         if (rutineSpawn != null)
         {
             StopCoroutine(rutineSpawn);
+            rutineSpawn = null;
         }
     }
 
@@ -42,6 +44,7 @@ public class SpawnsMissile : MonoBehaviour
                 StopSpawnRutine();
                 break;
             case GameState.Pause:
+                StopSpawnRutine();
                 break;
             case GameState.MiniGame:
                 StopSpawnRutine();

@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
             case GameState.Menu:
                 break;
             case GameState.Playing:
+                inReactor = false;
                 ResetPressHolder();
                 break;
             case GameState.EndGame:
@@ -63,6 +64,10 @@ public class PlayerController : MonoBehaviour
                 ResetPressHolder();
             }
         }
+        else
+        {
+            currTime = 0;
+        }
     }
 
     private void FixedUpdate()
@@ -77,8 +82,11 @@ public class PlayerController : MonoBehaviour
         ReactorController reactorController = collision.GetComponentInParent<ReactorController>();
         if (reactorController)
         {
-            currentReactor = reactorController;
-            pressHolder.gameObject.SetActive(true);
+            if (reactorController.reactorEnergy.energyShield < 100)
+            {
+                currentReactor = reactorController;
+                pressHolder.gameObject.SetActive(true);
+            }
         }
     }
 

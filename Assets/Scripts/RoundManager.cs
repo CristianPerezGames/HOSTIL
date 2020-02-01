@@ -17,14 +17,19 @@ public class RoundManager : Singleton<RoundManager>
     public Action<GameState> onChangeStateGame;
 
     public GameState gameState = GameState.Playing;
+    
     public SpawnsMissile spawnsMissile;
     public PlayerController playerController;
 
     public List<ReactorController> reactorControllers;
 
+    GameState storeState = GameState.Playing;
+
+    private Coroutine slowPause;
+
     private void Awake()
     {
-
+        onChangeStateGame += StateRound;
     }
 
     private void Start()
@@ -34,10 +39,52 @@ public class RoundManager : Singleton<RoundManager>
 
     void StateRound(GameState _gameState)
     {
-        if (_gameState == GameState.MiniGame)
-            Time.timeScale = 0;
+        if (_gameState == GameState.MiniGame || _gameState == GameState.Pause)
+            StarSlowPause();
         if (_gameState == GameState.Playing)
+        {
+            if (slowPause != null)
+            {
+                StopCoroutine(slowPause);
+                slowPause = null;
+            }
             Time.timeScale = 1;
+        }
+    }
+
+    void StarSlowPause()
+    {
+        if(slowPause == null)
+            slowPause = StartCoroutine(RutineSlowPause());
+    }
+
+    IEnumerator RutineSlowPause()
+    {
+        float tim = 1;
+        while (tim > 0)
+        {
+            tim -= Time.deltaTime * 4;
+            Time.timeScale = tim;
+            yield return null;
+        }
+
+        Time.timeScale = 0;
+    }
+
+    private void LateUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (gameState != GameState.Pause)
+            {
+                storeState = gameState;
+                CallOnChangeGame(GameState.Pause);
+            }
+            else 
+            {
+                CallOnChangeGame(storeState);
+            }
+        }
     }
 
     IEnumerator RutineStartGame()
@@ -61,6 +108,7 @@ public class RoundManager : Singleton<RoundManager>
 
     public void CallOnChangeGame(GameState _gameState)
     {
+        gameState = _gameState;
         if (onChangeStateGame != null)
         {
             onChangeStateGame.Invoke(_gameState);
