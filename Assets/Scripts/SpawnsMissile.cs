@@ -60,11 +60,6 @@ public class SpawnsMissile : MonoBehaviour
         }
     }
 
-    Transform GetSpawner()
-    {
-        return spawnPoints[Random.Range(0, spawnPoints.Count)];
-    }
-
     private GameObject GetLiveReactor(){
         List<GameObject> liveReactors = new List<GameObject>();
         if(!reactor1.GetComponent<ReactorEnergy>().IsBroken()){

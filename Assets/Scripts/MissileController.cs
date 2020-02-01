@@ -30,7 +30,7 @@ public class MissileController : MonoBehaviour
         this.reactor = reactor;
     }
 
-    public void Update(){
-        this.GetComponent<Rigidbody2D>().AddForce(new Vector2((reactor.transform.position.x - this.transform.position.x)/2 , 0));
+    public void Update() {
+        this.GetComponent<Rigidbody2D>().AddForce(new Vector2((reactor.transform.position.x - this.transform.position.x) * 10 * Time.deltaTime , 0));
     }
 }
