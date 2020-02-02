@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class SpawnsMissile : MonoBehaviour
 {
+<<<<<<< HEAD
+=======
+    public MissileController missilePrefab;
+    public List<Transform> spawnPoints;
+
+    public GameObject reactor1;
+    public GameObject reactor2;
+    public GameObject reactor3;
+
+>>>>>>> parent of a18c9c3... Agrego el tema principal
     public Coroutine rutineSpawn;
 
     private void Start()
@@ -74,6 +84,7 @@ public class SpawnsMissile : MonoBehaviour
             return null;
         }        
     }
+<<<<<<< HEAD
     public void PlayMusic(){
         if (isMusicPlaying){
             return;
@@ -95,3 +106,6 @@ public class SpawnsMissile : MonoBehaviour
         isMusicPlaying = false;
     }
 }
+=======
+}
+>>>>>>> parent of a18c9c3... Agrego el tema principal
