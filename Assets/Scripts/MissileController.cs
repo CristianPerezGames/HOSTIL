@@ -18,7 +18,7 @@ public class MissileController : MonoBehaviour
     private GameObject reactor;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isDestroy)
+        if (isDestroy || collision.collider.gameObject.layer == 8)
             return;
 
         if (collision.collider.gameObject.layer == 9)
@@ -48,8 +48,7 @@ public class MissileController : MonoBehaviour
 
     public void Update() {
         float error = Random.Range(-1.0f,1.0f);
-        if(this.GetComponent<Rigidbody2D>() != null && reactor != null)
-            this.GetComponent<Rigidbody2D>().AddForce(new Vector2((reactor.transform.position.x - this.transform.position.x + error) * AimForce * Time.deltaTime , 0));
+        this.GetComponent<Rigidbody2D>().AddForce(new Vector2((reactor.transform.position.x - this.transform.position.x + error) * AimForce * Time.deltaTime , 0));
     }
 
     public void Start(){

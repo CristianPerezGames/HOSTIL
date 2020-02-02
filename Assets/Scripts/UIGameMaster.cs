@@ -66,6 +66,6 @@ public class UIGameMaster : Singleton<UIGameMaster>
 
     private void OnDisable()
     {
-        
+
     }
 }

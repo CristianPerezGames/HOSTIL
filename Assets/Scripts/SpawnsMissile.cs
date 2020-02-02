@@ -36,7 +36,7 @@ public class SpawnsMissile : MonoBehaviour
 
     public void SpawnMissile()
     {
-        if(!firstWave)
+        if (!firstWave)
         {
             InitWave();
             firstWave = true;
@@ -100,14 +100,14 @@ public class SpawnsMissile : MonoBehaviour
         {
             float timeInterval = Random.Range(0.3f, 1.2f);
             yield return new WaitForSecondsRealtime(timeInterval);
-            var newMissile = Instantiate(missilePrefab, new Vector2(Random.Range(-6,6),7), Quaternion.identity);
-            newMissile.SetTargetReactor(GetLiveReactor());        
+            var newMissile = Instantiate(missilePrefab, new Vector2(Random.Range(-6, 6), 7), Quaternion.identity);
+            newMissile.SetTargetReactor(GetLiveReactor());
         }
     }
 
     IEnumerator RutineWaveStart()
     {
-        UIGameMaster.Instance.textStartRound.text = "WAVE " + currWave.ToString() + "\n<color=red>START</color>";
+        UIGameMaster.Instance.textStartRound.text = "WAVE " + currWave.ToString() + "\n<color=yellow>START</color>";
         UIGameMaster.Instance.textStartRound.gameObject.SetActive(true);
         yield return new WaitForSeconds(1);
         UIGameMaster.Instance.textStartRound.gameObject.SetActive(false);
@@ -117,27 +117,34 @@ public class SpawnsMissile : MonoBehaviour
             UIGameMaster.Instance.textCountRound.gameObject.SetActive(true);
             yield return new WaitForSeconds(1);
             UIGameMaster.Instance.textCountRound.gameObject.SetActive(false);
-            UIGameMaster.Instance.textCountRound.text = (i-1).ToString();
+            UIGameMaster.Instance.textCountRound.text = (i - 1).ToString();
         }
     }
 
-    private GameObject GetLiveReactor(){
+    private GameObject GetLiveReactor()
+    {
         List<GameObject> liveReactors = new List<GameObject>();
-        if(!reactor1.GetComponent<ReactorEnergy>().IsBroken()){
+        if (!reactor1.GetComponent<ReactorEnergy>().IsBroken())
+        {
             liveReactors.Add(reactor1);
         }
-        if(!reactor2.GetComponent<ReactorEnergy>().IsBroken()){
+        if (!reactor2.GetComponent<ReactorEnergy>().IsBroken())
+        {
             liveReactors.Add(reactor2);
         }
-        if(!reactor3.GetComponent<ReactorEnergy>().IsBroken()){
+        if (!reactor3.GetComponent<ReactorEnergy>().IsBroken())
+        {
             liveReactors.Add(reactor3);
         }
 
-        if (liveReactors.Count>0){
+        if (liveReactors.Count > 0)
+        {
             return liveReactors[Random.Range(0, liveReactors.Count)];
-        } else {
+        }
+        else
+        {
             return null;
-        }        
+        }
     }
 
     public void Update()
@@ -157,7 +164,7 @@ public class SpawnsMissile : MonoBehaviour
                 currWave++;
             }
         }
-        if(!waitWaveStart)
+        if (!waitWaveStart)
         {
             currTimeWaitWave += Time.deltaTime;
             if (currTimeWaitWave > timeWaitWave)
@@ -169,23 +176,30 @@ public class SpawnsMissile : MonoBehaviour
         }
     }
 
-    public void PlayMusic(){
-        if (isMusicPlaying){
+    public void PlayMusic()
+    {
+        if (isMusicPlaying)
+        {
             return;
-        } else {
+        }
+        else
+        {
             isMusicPlaying = true;
             mainMusic.Play();
-            }
+        }
     }
 
-    public void PauseMusic(){
-        if (isMusicPlaying){
+    public void PauseMusic()
+    {
+        if (isMusicPlaying)
+        {
             mainMusic.Pause();
             isMusicPlaying = false;
         }
     }
 
-    public void StopMusic(){
+    public void StopMusic()
+    {
         mainMusic.Stop();
         isMusicPlaying = false;
     }
