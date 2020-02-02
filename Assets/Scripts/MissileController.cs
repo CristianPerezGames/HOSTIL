@@ -18,7 +18,7 @@ public class MissileController : MonoBehaviour
     private GameObject reactor;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isDestroy)
+        if (isDestroy || collision.collider.gameObject.layer == 8)
             return;
 
         if (collision.collider.gameObject.layer == 9)
