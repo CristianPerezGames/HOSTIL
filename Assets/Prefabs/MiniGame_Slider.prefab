@@ -493,7 +493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contador: 50
   restarPorSegundo: 3
-  sumarPorGolpe: 75
+  sumarPorGolpe: 100
   maximo: 95
   minimo: 0
   tiempo: 3

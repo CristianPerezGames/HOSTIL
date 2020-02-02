@@ -13,6 +13,7 @@ public class SpawnsMissile : MonoBehaviour
 
     private bool isMusicPlaying = false;
     public AudioSource mainMusic;
+    public AudioSource playAudioWave;
 
     public Coroutine rutineSpawn;
 
@@ -38,6 +39,7 @@ public class SpawnsMissile : MonoBehaviour
     {
         if (!firstWave)
         {
+            mainMusic.Play();
             InitWave();
             firstWave = true;
             return;
@@ -120,6 +122,7 @@ public class SpawnsMissile : MonoBehaviour
         yield return new WaitForSeconds(1);
         UIGameMaster.Instance.textStartRound.gameObject.SetActive(false);
         UIGameMaster.Instance.textCountRound.text = "3";
+        playAudioWave.Play();
         for (int i = 3; i > 0; i--)
         {
             UIGameMaster.Instance.textCountRound.gameObject.SetActive(true);
