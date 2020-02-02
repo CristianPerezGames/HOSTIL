@@ -1363,8 +1363,8 @@ MonoBehaviour:
   reactor2: {fileID: 268921420}
   reactor3: {fileID: 584269175}
   mainMusic: {fileID: 2123032665}
-  timeWaitWave: 5
-  timeWave: 5
+  timeWaitWave: 3
+  timeWave: 8
   currWave: 1
   currTimeWaitWave: 0
   currTimeWave: 0
