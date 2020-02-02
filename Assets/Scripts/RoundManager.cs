@@ -28,6 +28,8 @@ public class RoundManager : Singleton<RoundManager>
 
     private Coroutine slowPause;
 
+    public GameObject ObjectVideo;
+
     private void Awake()
     {
         onChangeStateGame += StateRound;
@@ -97,7 +99,9 @@ public class RoundManager : Singleton<RoundManager>
 
     IEnumerator RutineStartGame()
     {
-        yield return new WaitForSecondsRealtime(2f);
+        ObjectVideo.SetActive(true);
+        yield return new WaitForSecondsRealtime(22f);
+        ObjectVideo.SetActive(false);
         CallOnChangeGame(GameState.Playing);
     }
 
