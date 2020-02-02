@@ -18,7 +18,7 @@ public class UIGameMaster : Singleton<UIGameMaster>
     {
         switch (_state)
         {
-            case GameState.Menu:
+            case GameState.PreGame:
                 break;
             case GameState.Playing:
                 break;
