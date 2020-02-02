@@ -31,6 +31,7 @@ public class MiniGameOne : MiniGameBase
         empiezaElMinigame();
 
         contador = RoundManager.Instance.playerController.currentReactor.reactorEnergy.energyShield;
+        Debug.Log(contador);
     }
 
     // Update is called once per frame
