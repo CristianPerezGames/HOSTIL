@@ -1,7 +1,34 @@
 fileFormatVersion: 2
 guid: cccaf42221bcf974eae8c6029563dc82
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -8671722253872611278
+    second: SpriteSheet Palanca_0
+  - first:
+      213: -5294082112280545604
+    second: SpriteSheet Palanca_1
+  - first:
+      213: 1662236883026709989
+    second: SpriteSheet Palanca_2
+  - first:
+      213: -4952319943730469699
+    second: SpriteSheet Palanca_3
+  - first:
+      213: 2388037800147305531
+    second: SpriteSheet Palanca_4
+  - first:
+      213: 6843025453237695648
+    second: SpriteSheet Palanca_5
+  - first:
+      213: 5391150499510349451
+    second: SpriteSheet Palanca_6
+  - first:
+      213: -2895530386766653961
+    second: SpriteSheet Palanca_7
+  - first:
+      213: 5723049348773557063
+    second: SpriteSheet Palanca_8
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +67,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,9 +97,222 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SpriteSheet Palanca_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 947
+        height: 431
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 230c21b0e8ad7a780800000000000000
+      internalID: -8671722253872611278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet Palanca_1
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 0
+        width: 947
+        height: 431
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb6b4cd3e54a786b0800000000000000
+      internalID: -5294082112280545604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet Palanca_2
+      rect:
+        serializedVersion: 2
+        x: 1894
+        y: 0
+        width: 947
+        height: 431
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ed0c5163a3711710800000000000000
+      internalID: 1662236883026709989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet Palanca_3
+      rect:
+        serializedVersion: 2
+        x: 2841
+        y: 0
+        width: 947
+        height: 431
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db4ecdbef33d54bb0800000000000000
+      internalID: -4952319943730469699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet Palanca_4
+      rect:
+        serializedVersion: 2
+        x: 3788
+        y: 0
+        width: 947
+        height: 431
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b344cf31ab3042120800000000000000
+      internalID: 2388037800147305531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet Palanca_5
+      rect:
+        serializedVersion: 2
+        x: 4735
+        y: 0
+        width: 947
+        height: 431
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a47031d46f47fe50800000000000000
+      internalID: 6843025453237695648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet Palanca_6
+      rect:
+        serializedVersion: 2
+        x: 5682
+        y: 0
+        width: 947
+        height: 431
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8eebf5d0d631da40800000000000000
+      internalID: 5391150499510349451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet Palanca_7
+      rect:
+        serializedVersion: 2
+        x: 6629
+        y: 0
+        width: 947
+        height: 431
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f59c64547201d7d0800000000000000
+      internalID: -2895530386766653961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet Palanca_8
+      rect:
+        serializedVersion: 2
+        x: 7576
+        y: 0
+        width: 947
+        height: 431
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 743bda98f0b5c6f40800000000000000
+      internalID: 5723049348773557063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
