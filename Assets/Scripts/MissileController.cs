@@ -48,7 +48,8 @@ public class MissileController : MonoBehaviour
 
     public void Update() {
         float error = Random.Range(-1.0f,1.0f);
-        this.GetComponent<Rigidbody2D>().AddForce(new Vector2((reactor.transform.position.x - this.transform.position.x + error) * AimForce * Time.deltaTime , 0));
+        if(this.GetComponent<Rigidbody2D>() != null && reactor != null)
+            this.GetComponent<Rigidbody2D>().AddForce(new Vector2((reactor.transform.position.x - this.transform.position.x + error) * AimForce * Time.deltaTime , 0));
     }
 
     public void Start(){

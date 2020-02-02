@@ -23,17 +23,30 @@ public class SpawnsMissile : MonoBehaviour
     public float currTimeWaitWave;
     public float currTimeWave;
     bool waitWave = false;
+    bool waitWaveStart = false;
+
+    bool firstWave = false;
 
     private void Start()
     {
         RoundManager.Instance.onChangeStateGame += StateGame;
-        waitWave = false;
+        waitWave = true;
+        waitWaveStart = true;
     }
 
     public void SpawnMissile()
     {
-        if(rutineSpawn == null)
+        if(!firstWave)
+        {
+            InitWave();
+            firstWave = true;
+            return;
+        }
+
+        if (rutineSpawn == null)
+        {
             rutineSpawn = StartCoroutine(RutineMissile());
+        }
     }
 
     void StopSpawnRutine()
@@ -67,6 +80,20 @@ public class SpawnsMissile : MonoBehaviour
         }
     }
 
+    void InitWave()
+    {
+        StartCoroutine(RutineWave());
+    }
+
+    IEnumerator RutineWave()
+    {
+        yield return new WaitForSeconds(1f);
+
+        yield return RutineWaveStart();
+        waitWave = false;
+        rutineSpawn = StartCoroutine(RutineMissile());
+    }
+
     IEnumerator RutineMissile()
     {
         while (true)
@@ -80,8 +107,18 @@ public class SpawnsMissile : MonoBehaviour
 
     IEnumerator RutineWaveStart()
     {
-
+        UIGameMaster.Instance.textStartRound.text = "WAVE " + currWave.ToString() + "\n<color=red>START</color>";
+        UIGameMaster.Instance.textStartRound.gameObject.SetActive(true);
         yield return new WaitForSeconds(1);
+        UIGameMaster.Instance.textStartRound.gameObject.SetActive(false);
+        UIGameMaster.Instance.textCountRound.text = "3";
+        for (int i = 3; i > 0; i--)
+        {
+            UIGameMaster.Instance.textCountRound.gameObject.SetActive(true);
+            yield return new WaitForSeconds(1);
+            UIGameMaster.Instance.textCountRound.gameObject.SetActive(false);
+            UIGameMaster.Instance.textCountRound.text = (i-1).ToString();
+        }
     }
 
     private GameObject GetLiveReactor(){
@@ -115,18 +152,19 @@ public class SpawnsMissile : MonoBehaviour
             {
                 currTimeWave = 0;
                 waitWave = true;
+                waitWaveStart = false;
                 StopSpawnRutine();
                 currWave++;
             }
         }
-        else
+        if(!waitWaveStart)
         {
             currTimeWaitWave += Time.deltaTime;
             if (currTimeWaitWave > timeWaitWave)
             {
                 currTimeWaitWave = 0;
-                waitWave = false;
-                SpawnMissile();
+                waitWaveStart = true;
+                InitWave();
             }
         }
     }

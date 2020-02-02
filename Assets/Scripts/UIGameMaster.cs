@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIGameMaster : Singleton<UIGameMaster>
 {
@@ -9,6 +10,10 @@ public class UIGameMaster : Singleton<UIGameMaster>
     public GameObject uiPauseGame;
 
     public List<MiniGameBase> miniGames;
+
+    public Text textStartRound;
+    public Text textCountRound;
+
     private void Start()
     {
         RoundManager.Instance.onChangeStateGame += UIStateGame;
