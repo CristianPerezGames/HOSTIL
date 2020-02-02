@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 5b4410bd4ecbd4c4184bad1901341369
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: PF Ronda Seven
+  fontNames:
+  - PF Ronda Seven
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: f7aa80fc67427094186dda59efe7009d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

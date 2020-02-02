@@ -23,8 +23,9 @@ public class PauseGame : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void ReturnHome()
+    public void ReturnHome()
     {
-
+        RoundManager.Instance.StopSlowMotion();
+        SceneController.Instance.ChangeScene(1);
     }
 }

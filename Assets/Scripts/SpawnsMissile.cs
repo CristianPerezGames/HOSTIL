@@ -78,6 +78,12 @@ public class SpawnsMissile : MonoBehaviour
         }
     }
 
+    IEnumerator RutineWaveStart()
+    {
+
+        yield return new WaitForSeconds(1);
+    }
+
     private GameObject GetLiveReactor(){
         List<GameObject> liveReactors = new List<GameObject>();
         if(!reactor1.GetComponent<ReactorEnergy>().IsBroken()){
