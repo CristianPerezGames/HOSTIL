@@ -40,7 +40,7 @@ public class MiniGameOne : MiniGameBase
         {
             contador -= restarPorSegundo * Time.unscaledDeltaTime;
             boton.color = Color.red;
-            if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyDown(KeyCode.Space) || GetKeyActionX())
             {
 //                Debug.Log("se presiono ---------------------------------------------------------- SPACE");
                 contador += sumarPorGolpe * Time.unscaledDeltaTime;
@@ -89,5 +89,20 @@ public class MiniGameOne : MiniGameBase
          * CONTADOR
          * tiene la cantidad de energia que el jugador gano en el minigame
          */
+    }
+
+    bool GetKeyActionX()
+    {
+        if(Input.GetKeyDown(KeyCode.X))
+        {
+            return true;
+        }
+
+        if(Input.GetButtonDown("Fire3"))
+        {
+            return true;
+        }
+
+        return false;
     }
 }

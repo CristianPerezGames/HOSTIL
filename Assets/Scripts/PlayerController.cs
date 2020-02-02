@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
         if (RoundManager.Instance.gameState == GameState.waitWave)
             return;
 
-        if (Input.GetKey(KeyCode.X) && !inReactor && currentReactor != null)
+        if (GetKeyActionX() && !inReactor && currentReactor != null)
         {
             if (currentReactor.reactorEnergy.energyShield < 100)
             {
@@ -82,6 +82,21 @@ public class PlayerController : MonoBehaviour
                 pressHolder.gameObject.SetActive(true);
             }
         }
+    }
+
+    bool GetKeyActionX()
+    {
+        if(Input.GetKey(KeyCode.X))
+        {
+            return true;
+        }
+
+        if(Input.GetButton("Fire3"))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     private void FixedUpdate()
