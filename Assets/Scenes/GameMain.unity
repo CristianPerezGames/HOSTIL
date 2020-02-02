@@ -233,7 +233,7 @@ PrefabInstance:
         type: 3}
       propertyPath: reactorRoto
       value: 
-      objectReference: {fileID: 26237434}
+      objectReference: {fileID: 230170504}
     - target: {fileID: 4777919766192584366, guid: b583ccf0ca1dd724082882e629d29c69,
         type: 3}
       propertyPath: m_Name
@@ -283,6 +283,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2609271720431524241, guid: 57b4016e3f897ca4f84f8e74e34a5cbc,
     type: 3}
   m_PrefabInstance: {fileID: 2635353647834334457}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &230170504 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4777919766192584366, guid: b583ccf0ca1dd724082882e629d29c69,
+    type: 3}
+  m_PrefabInstance: {fileID: 26237433}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &230794437
 PrefabInstance:
@@ -767,6 +773,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &411605142 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1981291953183589954, guid: b583ccf0ca1dd724082882e629d29c69,
+    type: 3}
+  m_PrefabInstance: {fileID: 1981291952291366274}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &494856023
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,6 +1278,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4369253616586380288, guid: 5ea7651639326bd4884d1097556c7c1b,
     type: 3}
   m_PrefabInstance: {fileID: 4369253615663858117}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1225473261 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4777919766192584366, guid: b583ccf0ca1dd724082882e629d29c69,
+    type: 3}
+  m_PrefabInstance: {fileID: 1981291952291366274}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1265653762
 PrefabInstance:
@@ -2109,12 +2127,12 @@ PrefabInstance:
         type: 3}
       propertyPath: reactorVivo
       value: 
-      objectReference: {fileID: 100672241}
+      objectReference: {fileID: 411605142}
     - target: {fileID: 4663636329150853446, guid: b583ccf0ca1dd724082882e629d29c69,
         type: 3}
       propertyPath: reactorRoto
       value: 
-      objectReference: {fileID: 461049803}
+      objectReference: {fileID: 1225473261}
     - target: {fileID: 4777919766192584366, guid: b583ccf0ca1dd724082882e629d29c69,
         type: 3}
       propertyPath: m_IsActive
