@@ -91,6 +91,7 @@ public class SpawnsMissile : MonoBehaviour
 
         yield return RutineWaveStart();
         waitWave = false;
+        timeWave += currWave * 0.5f;
 
         RoundManager.Instance.CallOnChangeGame(GameState.Playing);
     }
@@ -101,8 +102,14 @@ public class SpawnsMissile : MonoBehaviour
         {
             float timeInterval = Random.Range(0.3f, 1.2f);
             yield return new WaitForSecondsRealtime(timeInterval);
-            var newMissile = Instantiate(missilePrefab, new Vector2(Random.Range(-6, 6), 7), Quaternion.identity);
-            newMissile.SetTargetReactor(GetLiveReactor());
+            int totalMissiles = Random.Range(1, Mathf.CeilToInt(1 + (currWave * 0.3f)));
+            for (int i = 0; i < totalMissiles; i++)
+            {
+                var newMissile = Instantiate(missilePrefab, new Vector2(Random.Range(-6, 6), 7), Quaternion.identity);
+                newMissile.SetTargetReactor(GetLiveReactor());
+                yield return new WaitForSeconds(0.1f);
+            }
+
         }
     }
 

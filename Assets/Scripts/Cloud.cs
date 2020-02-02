@@ -6,8 +6,10 @@ public class Cloud : MonoBehaviour
 {
     // Start is called before the first frame update
     private int direction = 1;
+    float speed = 1;
     void Start()
     {
+        speed = Random.Range(0.5f, 2);
         this.setStaringPositionAndDirection();        
     }
 
@@ -24,14 +26,14 @@ public class Cloud : MonoBehaviour
         direction = Random.Range(-1,1);
         if(direction < 0){
             direction = 1;
-            this.transform.position = new Vector2(-12, 3);
+            this.transform.position = new Vector2(-transform.position.x, transform.position.y);
         } else {
             direction = -1;
-            this.transform.position = new Vector2(12, 3);
+            this.transform.position = new Vector2(transform.position.x, transform.position.y);
         }
     }
 
     public void Move(){
-        transform.position = new Vector2(transform.position.x + (Time.deltaTime * direction ), transform.position.y);   
+        transform.position = new Vector2(transform.position.x + (Time.deltaTime * direction * speed ), transform.position.y);   
     }
 }

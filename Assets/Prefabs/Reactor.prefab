@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 1981291953183589955}
   - component: {fileID: 1981291953183589953}
   - component: {fileID: 1981291953183589952}
-  - component: {fileID: 2118350376}
+  - component: {fileID: 100672245}
   m_Layer: 0
   m_Name: ArtCollision
   m_TagString: Untagged
@@ -186,7 +186,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -2249775441769312103, guid: c8c1aa99ecbf4e845bf332097e77a755,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -210,9 +210,9 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.12, y: 5.12, z: 0.2}
-  m_Center: {x: 0, y: 0.0000019073486, z: 0}
---- !u!95 &2118350376
+  m_Size: {x: 2.7059307, y: 2.3757365, z: 1}
+  m_Center: {x: 0.022771854, y: -0.18786629, z: 0}
+--- !u!95 &100672245
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -640,7 +640,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_TargetDisplay: 0
 --- !u!114 &7977426660160267351
 MonoBehaviour:
@@ -707,8 +707,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6188146229564648412}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 0}
-  m_LocalScale: {x: 0.64, y: 0.64, z: 0.64}
+  m_LocalPosition: {x: 0, y: 0.83, z: 0}
+  m_LocalScale: {x: 0.73248, y: 0.73248, z: 0.73248}
   m_Children: []
   m_Father: {fileID: 1981291952245573002}
   m_RootOrder: 2

@@ -7,10 +7,15 @@ public class CameraFollow : MonoBehaviour
     public Transform playerTrans;
     public float xOffset = 5;
 
+    public float z;
+    public float offSetIN;
+    public float offSetOut;
+    public float speed;
+
     public void Update()
     {
-        float xLerp = MapValue(-10, 10, -2, 2, playerTrans.position.x);
-        transform.position = new Vector3(Mathf.Lerp(transform.position.x, xLerp, Time.deltaTime), transform.position.y, -10);
+        float xLerp = MapValue(-offSetIN, offSetIN, -offSetOut, offSetOut, playerTrans.position.x);
+        transform.position = new Vector3(Mathf.Lerp(transform.position.x, xLerp, Time.deltaTime * speed), transform.position.y, z);
     }
 
     public float MapValue(float a0, float a1, float b0, float b1, float a)
