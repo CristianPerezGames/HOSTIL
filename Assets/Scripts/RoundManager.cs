@@ -9,7 +9,8 @@ public enum GameState
     Playing,
     EndGame,
     Pause,
-    MiniGame
+    MiniGame,
+    waitWave
 }
 
 public class RoundManager : Singleton<RoundManager>

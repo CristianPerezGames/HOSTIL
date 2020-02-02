@@ -91,7 +91,8 @@ public class SpawnsMissile : MonoBehaviour
 
         yield return RutineWaveStart();
         waitWave = false;
-        rutineSpawn = StartCoroutine(RutineMissile());
+
+        RoundManager.Instance.CallOnChangeGame(GameState.Playing);
     }
 
     IEnumerator RutineMissile()
@@ -107,7 +108,7 @@ public class SpawnsMissile : MonoBehaviour
 
     IEnumerator RutineWaveStart()
     {
-        UIGameMaster.Instance.textStartRound.text = "WAVE " + currWave.ToString() + "\n<color=yellow>START</color>";
+        UIGameMaster.Instance.textStartRound.text = "WAVE START" + "\n<color=yellow> <size=100>" + currWave.ToString() + "</size> </color>";
         UIGameMaster.Instance.textStartRound.gameObject.SetActive(true);
         yield return new WaitForSeconds(1);
         UIGameMaster.Instance.textStartRound.gameObject.SetActive(false);
@@ -161,6 +162,7 @@ public class SpawnsMissile : MonoBehaviour
                 waitWave = true;
                 waitWaveStart = false;
                 StopSpawnRutine();
+                RoundManager.Instance.CallOnChangeGame(GameState.waitWave);
                 currWave++;
             }
         }

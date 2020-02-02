@@ -53,6 +53,9 @@ public class PlayerController : MonoBehaviour
 
         xAxis = Input.GetAxis("Horizontal");
 
+        if (RoundManager.Instance.gameState == GameState.waitWave)
+            return;
+
         if (Input.GetKey(KeyCode.X) && !inReactor && currentReactor != null)
         {
             if (currentReactor.reactorEnergy.energyShield < 100)
