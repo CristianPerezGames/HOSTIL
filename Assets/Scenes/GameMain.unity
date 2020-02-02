@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7619c4d7f8720864887760c7553e1a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: 1
+  gameState: 0
   spawnsMissile: {fileID: 2123032663}
   playerController: {fileID: 195423251}
   reactorControllers:
@@ -901,6 +901,11 @@ MonoBehaviour:
   reactor1: {fileID: 924608181}
   reactor2: {fileID: 268921420}
   reactor3: {fileID: 584269175}
+  timeWaitWave: 5
+  timeWave: 5
+  currWave: 1
+  currTimeWaitWave: 0
+  currTimeWave: 0
 --- !u!4 &2123032664
 Transform:
   m_ObjectHideFlags: 0
