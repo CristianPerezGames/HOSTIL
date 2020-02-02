@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a4daec8119ae140b8b7ba949601c74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageMissile: 25
+  damageMissile: 10
   isDestroy: 0
   AimForce: 50
   explosion: {fileID: 64558475870101283, guid: b7e29ceeead7c71438b65eab4514087f, type: 3}
