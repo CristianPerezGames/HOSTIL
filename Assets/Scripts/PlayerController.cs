@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
 
         if (currentReactor != null)
         {
-            if (currentReactor.reactorEnergy.energyShield < 100)
+            if (currentReactor.reactorEnergy.energyShield < 100 && !currentReactor.reactorEnergy.IsBroken())
             {
                 pressHolder.gameObject.SetActive(true);
             }
