@@ -11,6 +11,9 @@ public class SpawnsMissile : MonoBehaviour
     public GameObject reactor2;
     public GameObject reactor3;
 
+    private bool isMusicPlaying = false;
+    public AudioSource mainMusic;
+
     public Coroutine rutineSpawn;
 
     private void Start()
@@ -39,12 +42,15 @@ public class SpawnsMissile : MonoBehaviour
         {
             case GameState.Playing:
                 SpawnMissile();
+                PlayMusic();
                 break;
             case GameState.EndGame:
                 StopSpawnRutine();
+                StopMusic();
                 break;
             case GameState.Pause:
                 StopSpawnRutine();
+                PauseMusic();
                 break;
             case GameState.MiniGame:
                 StopSpawnRutine();
@@ -80,5 +86,26 @@ public class SpawnsMissile : MonoBehaviour
         } else {
             return null;
         }        
+    }
+
+    public void PlayMusic(){
+        if (isMusicPlaying){
+            return;
+        } else {
+            isMusicPlaying = true;
+            mainMusic.Play();
+            }
+    }
+
+    public void PauseMusic(){
+        if (isMusicPlaying){
+            mainMusic.Pause();
+            isMusicPlaying = false;
+        }
+    }
+
+    public void StopMusic(){
+        mainMusic.Stop();
+        isMusicPlaying = false;
     }
 }
