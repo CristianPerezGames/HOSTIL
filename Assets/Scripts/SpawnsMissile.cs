@@ -106,4 +106,25 @@ public class SpawnsMissile : MonoBehaviour
         }        
     }
 
+    public void PlayMusic(){
+        if (isMusicPlaying){
+            return;
+        } else {
+            isMusicPlaying = true;
+            mainMusic.Play();
+            }
+    }
+
+    public void PauseMusic(){
+        if (isMusicPlaying){
+            mainMusic.Pause();
+            isMusicPlaying = false;
+        }
+    }
+
+    public void StopMusic(){
+        mainMusic.Stop();
+        isMusicPlaying = false;
+    }
+
 }
