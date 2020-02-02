@@ -129,6 +129,14 @@ public class SpawnsMissile : MonoBehaviour
         }
     }
 
+    IEnumerator RutineEndWave()
+    {
+        UIGameMaster.Instance.textStartRound.gameObject.SetActive(true);
+        UIGameMaster.Instance.textStartRound.text = "END WAVE";
+        yield return new WaitForSeconds(2);
+        UIGameMaster.Instance.textStartRound.gameObject.SetActive(false);
+    }
+
     private GameObject GetLiveReactor()
     {
         List<GameObject> liveReactors = new List<GameObject>();
@@ -169,6 +177,7 @@ public class SpawnsMissile : MonoBehaviour
                 waitWave = true;
                 waitWaveStart = false;
                 StopSpawnRutine();
+                StartCoroutine(RutineEndWave());
                 RoundManager.Instance.CallOnChangeGame(GameState.waitWave);
                 currWave++;
             }

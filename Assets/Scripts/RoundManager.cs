@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Video;
 
 public enum GameState
 {
@@ -29,6 +30,7 @@ public class RoundManager : Singleton<RoundManager>
     private Coroutine slowPause;
 
     public GameObject ObjectVideo;
+    public VideoPlayer video;
 
     private void Awake()
     {
@@ -100,9 +102,25 @@ public class RoundManager : Singleton<RoundManager>
     IEnumerator RutineStartGame()
     {
         ObjectVideo.SetActive(true);
-        yield return new WaitForSecondsRealtime(22f);
-        ObjectVideo.SetActive(false);
+        yield return RutineWaitVideo();
+        
         CallOnChangeGame(GameState.Playing);
+    }
+
+    IEnumerator RutineWaitVideo()
+    {
+        int i = 0;
+        while (i < 22)
+        {
+            i++;
+            if(Input.anyKey)
+            {
+                ObjectVideo.SetActive(false);
+                i = 22;
+                break;
+            }
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     bool VerifyGameEnd()
