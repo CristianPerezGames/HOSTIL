@@ -1376,7 +1376,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &1450286838
 RectTransform:
@@ -1789,6 +1789,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 22348501560511431, guid: 3f4e04faac2a99c40944e52363f7e4dd,
+        type: 3}
+      propertyPath: Priority
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 22348501560511432, guid: 3f4e04faac2a99c40944e52363f7e4dd,
         type: 3}
       propertyPath: m_Name
@@ -1986,6 +1991,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2105407731732081544, guid: 57b4016e3f897ca4f84f8e74e34a5cbc,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2609271720431524241, guid: 57b4016e3f897ca4f84f8e74e34a5cbc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2264,20 +2274,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIGameMaster
       objectReference: {fileID: 0}
-    - target: {fileID: 4652759027284728423, guid: 5ea7651639326bd4884d1097556c7c1b,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4652759027284728423, guid: 5ea7651639326bd4884d1097556c7c1b,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9059565594791871796, guid: 5ea7651639326bd4884d1097556c7c1b,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 0313ab7ce070e684aab3dae37e3417c0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ea7651639326bd4884d1097556c7c1b, type: 3}

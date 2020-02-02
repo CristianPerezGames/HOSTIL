@@ -39,12 +39,12 @@ public class MiniGameOne : MiniGameBase
         if(terminado == false)
         {
             contador -= restarPorSegundo * Time.unscaledDeltaTime;
-            boton.color = Color.red;
+            //boton.color = Color.red;
             if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyDown(KeyCode.Space) || GetKeyActionX())
             {
 //                Debug.Log("se presiono ---------------------------------------------------------- SPACE");
                 contador += sumarPorGolpe * Time.unscaledDeltaTime;
-                boton.color = Color.blue;
+                //boton.color = Color.blue;
             }
             if (contador <= minimo)
             {
