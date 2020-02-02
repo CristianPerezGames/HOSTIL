@@ -45,12 +45,17 @@ public class RoundManager : Singleton<RoundManager>
             Time.timeScale = 0;
         if (_gameState == GameState.Playing)
         {
-            if (slowPause != null)
-            {
-                StopCoroutine(slowPause);
-                slowPause = null;
-            }
+            StopSlowMotion();
             Time.timeScale = 1;
+        }
+    }
+
+    public void StopSlowMotion()
+    {
+        if (slowPause != null)
+        {
+            StopCoroutine(slowPause);
+            slowPause = null;
         }
     }
 

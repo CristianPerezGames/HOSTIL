@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: a9fe90ca472d78c44ab03ace0d441675
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: C Web
+  fontNames:
+  - C Web
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: f29104931e9ce0b488d9bd03199dfb8b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

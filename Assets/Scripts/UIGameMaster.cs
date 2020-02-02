@@ -51,7 +51,12 @@ public class UIGameMaster : Singleton<UIGameMaster>
 
     public void ReloadGame()
     {
-        SceneManager.LoadScene(0);
+        SceneController.Instance.ChangeScene(0);
+    }
+
+    public void QuitGame()
+    {
+        SceneController.Instance.ChangeScene(1);
     }
 
     private void OnDisable()
