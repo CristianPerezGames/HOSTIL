@@ -178,6 +178,7 @@ MonoBehaviour:
   damageMissile: 25
   isDestroy: 0
   AimForce: 50
+  explosion: {fileID: 64558475870101283, guid: b7e29ceeead7c71438b65eab4514087f, type: 3}
   explosionAudio: {fileID: -3959346396807826125}
   fireMissileAudio: {fileID: -6462190866808246064}
   artObject: {fileID: 5523024445995340784}

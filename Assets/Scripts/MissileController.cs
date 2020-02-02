@@ -9,6 +9,7 @@ public class MissileController : MonoBehaviour
     // Start is called before the first frame update
 
     public float AimForce;
+    public GameObject explosion;
     public AudioSource explosionAudio;
     public AudioSource fireMissileAudio;
 
@@ -22,6 +23,7 @@ public class MissileController : MonoBehaviour
 
         if (collision.collider.gameObject.layer == 9)
         {
+            CreateExplosion(new Vector2(collision.GetContact(0).point.x, collision.GetContact(0).point.y));
             ReactorEnergy energy = collision.collider.GetComponentInParent<ReactorEnergy>();
             if (energy)
             {
@@ -51,5 +53,9 @@ public class MissileController : MonoBehaviour
 
     public void Start(){
         fireMissileAudio.Play();
+    }
+
+    public void CreateExplosion(Vector2 origin){
+        Instantiate(explosion, origin, Quaternion.identity);
     }
 }
