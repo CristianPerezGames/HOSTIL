@@ -23,17 +23,30 @@ public class SpawnsMissile : MonoBehaviour
     public float currTimeWaitWave;
     public float currTimeWave;
     bool waitWave = false;
+    bool waitWaveStart = false;
+
+    bool firstWave = false;
 
     private void Start()
     {
         RoundManager.Instance.onChangeStateGame += StateGame;
-        waitWave = false;
+        waitWave = true;
+        waitWaveStart = true;
     }
 
     public void SpawnMissile()
     {
-        if(rutineSpawn == null)
+        if (!firstWave)
+        {
+            InitWave();
+            firstWave = true;
+            return;
+        }
+
+        if (rutineSpawn == null)
+        {
             rutineSpawn = StartCoroutine(RutineMissile());
+        }
     }
 
     void StopSpawnRutine()
@@ -67,40 +80,71 @@ public class SpawnsMissile : MonoBehaviour
         }
     }
 
+    void InitWave()
+    {
+        StartCoroutine(RutineWave());
+    }
+
+    IEnumerator RutineWave()
+    {
+        yield return new WaitForSeconds(1f);
+
+        yield return RutineWaveStart();
+        waitWave = false;
+        rutineSpawn = StartCoroutine(RutineMissile());
+    }
+
     IEnumerator RutineMissile()
     {
         while (true)
         {
             float timeInterval = Random.Range(0.3f, 1.2f);
             yield return new WaitForSecondsRealtime(timeInterval);
-            var newMissile = Instantiate(missilePrefab, new Vector2(Random.Range(-6,6),7), Quaternion.identity);
-            newMissile.SetTargetReactor(GetLiveReactor());        
+            var newMissile = Instantiate(missilePrefab, new Vector2(Random.Range(-6, 6), 7), Quaternion.identity);
+            newMissile.SetTargetReactor(GetLiveReactor());
         }
     }
 
     IEnumerator RutineWaveStart()
     {
-
+        UIGameMaster.Instance.textStartRound.text = "WAVE " + currWave.ToString() + "\n<color=yellow>START</color>";
+        UIGameMaster.Instance.textStartRound.gameObject.SetActive(true);
         yield return new WaitForSeconds(1);
+        UIGameMaster.Instance.textStartRound.gameObject.SetActive(false);
+        UIGameMaster.Instance.textCountRound.text = "3";
+        for (int i = 3; i > 0; i--)
+        {
+            UIGameMaster.Instance.textCountRound.gameObject.SetActive(true);
+            yield return new WaitForSeconds(1);
+            UIGameMaster.Instance.textCountRound.gameObject.SetActive(false);
+            UIGameMaster.Instance.textCountRound.text = (i - 1).ToString();
+        }
     }
 
-    private GameObject GetLiveReactor(){
+    private GameObject GetLiveReactor()
+    {
         List<GameObject> liveReactors = new List<GameObject>();
-        if(!reactor1.GetComponent<ReactorEnergy>().IsBroken()){
+        if (!reactor1.GetComponent<ReactorEnergy>().IsBroken())
+        {
             liveReactors.Add(reactor1);
         }
-        if(!reactor2.GetComponent<ReactorEnergy>().IsBroken()){
+        if (!reactor2.GetComponent<ReactorEnergy>().IsBroken())
+        {
             liveReactors.Add(reactor2);
         }
-        if(!reactor3.GetComponent<ReactorEnergy>().IsBroken()){
+        if (!reactor3.GetComponent<ReactorEnergy>().IsBroken())
+        {
             liveReactors.Add(reactor3);
         }
 
-        if (liveReactors.Count>0){
+        if (liveReactors.Count > 0)
+        {
             return liveReactors[Random.Range(0, liveReactors.Count)];
-        } else {
+        }
+        else
+        {
             return null;
-        }        
+        }
     }
 
     public void Update()
@@ -115,39 +159,47 @@ public class SpawnsMissile : MonoBehaviour
             {
                 currTimeWave = 0;
                 waitWave = true;
+                waitWaveStart = false;
                 StopSpawnRutine();
                 currWave++;
             }
         }
-        else
+        if (!waitWaveStart)
         {
             currTimeWaitWave += Time.deltaTime;
             if (currTimeWaitWave > timeWaitWave)
             {
                 currTimeWaitWave = 0;
-                waitWave = false;
-                SpawnMissile();
+                waitWaveStart = true;
+                InitWave();
             }
         }
     }
 
-    public void PlayMusic(){
-        if (isMusicPlaying){
+    public void PlayMusic()
+    {
+        if (isMusicPlaying)
+        {
             return;
-        } else {
+        }
+        else
+        {
             isMusicPlaying = true;
             mainMusic.Play();
-            }
+        }
     }
 
-    public void PauseMusic(){
-        if (isMusicPlaying){
+    public void PauseMusic()
+    {
+        if (isMusicPlaying)
+        {
             mainMusic.Pause();
             isMusicPlaying = false;
         }
     }
 
-    public void StopMusic(){
+    public void StopMusic()
+    {
         mainMusic.Stop();
         isMusicPlaying = false;
     }
