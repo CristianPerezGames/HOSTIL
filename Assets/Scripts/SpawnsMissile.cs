@@ -11,6 +11,9 @@ public class SpawnsMissile : MonoBehaviour
     public GameObject reactor2;
     public GameObject reactor3;
 
+    private bool isMusicPlaying = false;
+    public AudioSource mainMusic;
+
     public Coroutine rutineSpawn;
 
     public float timeWaitWave = 5;
@@ -49,12 +52,15 @@ public class SpawnsMissile : MonoBehaviour
         {
             case GameState.Playing:
                 SpawnMissile();
+                PlayMusic();
                 break;
             case GameState.EndGame:
                 StopSpawnRutine();
+                StopMusic();
                 break;
             case GameState.Pause:
                 StopSpawnRutine();
+                PauseMusic();
                 break;
             case GameState.MiniGame:
                 StopSpawnRutine();
@@ -100,31 +106,4 @@ public class SpawnsMissile : MonoBehaviour
         }        
     }
 
-    public void Update()
-    {
-        if (RoundManager.Instance.gameState == GameState.PreGame || RoundManager.Instance.gameState == GameState.Pause || RoundManager.Instance.gameState == GameState.EndGame || RoundManager.Instance.gameState == GameState.MiniGame)
-            return;
-
-        if (!waitWave)
-        {
-            currTimeWave += Time.deltaTime;
-            if (currTimeWave > timeWave)
-            {
-                currTimeWave = 0;
-                waitWave = true;
-                StopSpawnRutine();
-                currWave++;
-            }
-        }
-        else
-        {
-            currTimeWaitWave += Time.deltaTime;
-            if (currTimeWaitWave > timeWaitWave)
-            {
-                currTimeWaitWave = 0;
-                waitWave = false;
-                SpawnMissile();
-            }
-        }
-    }
 }
