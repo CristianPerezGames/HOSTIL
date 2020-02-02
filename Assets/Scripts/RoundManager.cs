@@ -119,8 +119,10 @@ public class RoundManager : Singleton<RoundManager>
                 i = 22;
                 break;
             }
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSecondsRealtime(1f);
         }
+
+        ObjectVideo.SetActive(false);
     }
 
     bool VerifyGameEnd()
