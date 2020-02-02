@@ -27,7 +27,6 @@ public class SpawnsMissile : MonoBehaviour
     private void Start()
     {
         RoundManager.Instance.onChangeStateGame += StateGame;
-
         waitWave = false;
     }
 
@@ -72,19 +71,11 @@ public class SpawnsMissile : MonoBehaviour
     {
         while (true)
         {
-            float timeInterval = Random.Range(0.3f, 1f);
+            float timeInterval = Random.Range(0.3f, 1.2f);
             yield return new WaitForSecondsRealtime(timeInterval);
-            for (int i = 0; i < GetTotalMissiles(); i++)
-            {
-                var newMissile = Instantiate(missilePrefab, new Vector2(Random.Range(-6, 6), 9), Quaternion.identity);
-                newMissile.SetTargetReactor(GetLiveReactor());
-            }
+            var newMissile = Instantiate(missilePrefab, new Vector2(Random.Range(-6,6),7), Quaternion.identity);
+            newMissile.SetTargetReactor(GetLiveReactor());        
         }
-    }
-
-    int GetTotalMissiles()
-    {
-        return Random.Range(1, currWave);
     }
 
     private GameObject GetLiveReactor(){
@@ -104,6 +95,34 @@ public class SpawnsMissile : MonoBehaviour
         } else {
             return null;
         }        
+    }
+
+    public void Update()
+    {
+        if (RoundManager.Instance.gameState == GameState.PreGame || RoundManager.Instance.gameState == GameState.Pause || RoundManager.Instance.gameState == GameState.EndGame || RoundManager.Instance.gameState == GameState.MiniGame)
+            return;
+
+        if (!waitWave)
+        {
+            currTimeWave += Time.deltaTime;
+            if (currTimeWave > timeWave)
+            {
+                currTimeWave = 0;
+                waitWave = true;
+                StopSpawnRutine();
+                currWave++;
+            }
+        }
+        else
+        {
+            currTimeWaitWave += Time.deltaTime;
+            if (currTimeWaitWave > timeWaitWave)
+            {
+                currTimeWaitWave = 0;
+                waitWave = false;
+                SpawnMissile();
+            }
+        }
     }
 
     public void PlayMusic(){
@@ -126,5 +145,4 @@ public class SpawnsMissile : MonoBehaviour
         mainMusic.Stop();
         isMusicPlaying = false;
     }
-
 }
