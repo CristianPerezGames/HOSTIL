@@ -7,6 +7,8 @@ public class ReactorEnergy : MonoBehaviour
 {
     public ReactorController reactorController;
     public GameObject shieldObject;
+    public GameObject reactorRoto;
+    public GameObject reactorVivo;
     public Slider sliderEnergy;
     [Header("VARIABLES")]
     public float energyShield = 0;
@@ -39,6 +41,8 @@ public class ReactorEnergy : MonoBehaviour
     {
         shieldObject.gameObject.SetActive(false);
         sliderEnergy.gameObject.SetActive(false);
+        reactorRoto.gameObject.SetActive(true);
+        reactorVivo.gameObject.SetActive(false);
     }
 
     public bool IsBroken(){
